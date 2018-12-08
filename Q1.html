@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Abdul-Hannan (150747)" />
+<meta name="author" content="Hannan" />
 
 
 <title>Q1.R</title>
@@ -26,20 +26,20 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-    font-weight:bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-  }
+	pre:not([class]) {
+		background-color: white;
+		font-size: 16px;
+		font-weight:bold;
+		font-family: Arial, Helvetica, sans-serif;
+	}
 </style>
 <script type="text/javascript">
 if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+	hljs.configure({languages: []});
+	hljs.initHighlightingOnLoad();
+	if (document.readyState && document.readyState === "complete") {
+		window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+	}
 }
 </script>
 
@@ -47,28 +47,28 @@ if (window.hljs) {
 
 <style type="text/css">
 h1 {
-  font-size: 34px;
+	font-size: 34px;
 }
 h1.title {
-  font-size: 38px;
+	font-size: 38px;
 }
 h2 {
-  font-size: 30px;
+	font-size: 30px;
 }
 h3 {
-  font-size: 24px;
+	font-size: 24px;
 }
 h4 {
-  font-size: 18px;
+	font-size: 18px;
 }
 h5 {
-  font-size: 16px;
+	font-size: 16px;
 }
 h6 {
-  font-size: 12px;
+	font-size: 12px;
 }
 .table th:not([align]) {
-  text-align: left;
+	text-align: left;
 }
 </style>
 
@@ -79,26 +79,26 @@ h6 {
 
 <style type="text/css">
 .main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
+	max-width: 940px;
+	margin-left: auto;
+	margin-right: auto;
 }
 code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
+	color: inherit;
+	background-color: rgba(0, 0, 0, 0.04);
 }
 img {
-  max-width:100%;
-  height: auto;
+	max-width:100%;
+	height: auto;
 }
 .tabbed-pane {
-  padding-top: 12px;
+	padding-top: 12px;
 }
 .html-widget {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
-  outline: none;
+	outline: none;
 }
 </style>
 
@@ -109,7 +109,7 @@ button.code-folding-btn:focus {
 <!-- tabsets -->
 <script>
 $(document).ready(function () {
-  window.buildTabsets("TOC");
+	window.buildTabsets("TOC");
 });
 </script>
 
@@ -125,71 +125,92 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Q1.R</h1>
-<h4 class="author"><em>Abdul-Hannan (150747)</em></h4>
-<h4 class="date"><em>Thu Dec 06 04:53:00 2018</em></h4>
+<h4 class="author"><em>Hannan</em></h4>
+<h4 class="date"><em>Sun Dec 09 03:30:44 2018</em></h4>
 
 </div>
 
 
 <pre class="r"><code># Loading necessary libraries and dataset
 # install.packages(&quot;readr&quot;)
-    library(readr)
-    Telco_Customer_Churn &lt;- read_csv(&quot;Telco-Customer-Churn.csv&quot;)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   customerID = col_character(),
-##   gender = col_character(),
-##   SeniorCitizen = col_double(),
-##   Partner = col_character(),
-##   Dependents = col_character(),
-##   tenure = col_double(),
-##   PhoneService = col_character(),
-##   MultipleLines = col_character(),
-##   InternetService = col_character(),
-##   StreamingTV = col_character(),
-##   StreamingMovies = col_character(),
-##   Contract = col_character(),
-##   PaperlessBilling = col_character(),
-##   PaymentMethod = col_character(),
-##   MonthlyCharges = col_double(),
-##   TotalCharges = col_double(),
-##   Churn = col_character()
-## )</code></pre>
-<pre class="r"><code>#   1.1. What is the proportion of males/females in the dataset?
-    gend &lt;- Telco_Customer_Churn$gender
-    gend_agreg &lt;- aggregate(data.frame(count = gend), list(value = gend), length)
-    gend_ratio &lt;- gend_agreg$count[2]/gend_agreg$count[1]
+		
+		library(readr)
+		Telco_Customer_Churn &lt;- read_csv(&quot;Telco-Customer-Churn.csv&quot;)</code></pre>
 
-    cat('The ratio of male/femal in data is: ',gend_agreg$count[2],'/' ,gend_agreg$count[1],' or ', round(gend_ratio, 4),'\n')</code></pre>
+<pre class="r"><code>#   1.1. What is the proportion of males/females in the dataset?
+		gend &lt;- Telco_Customer_Churn$gender
+		gend_agreg &lt;- aggregate(data.frame(count = gend), list(value = gend), length)
+		gend_ratio &lt;- gend_agreg$count[2]/gend_agreg$count[1]
+
+		cat('The ratio of male/femal in data is: ',gend_agreg$count[2],'/' ,gend_agreg$count[1],' or ', round(gend_ratio, 4),'\n')</code></pre>
 <pre><code>## The ratio of male/femal in data is:  3555 / 3488  or  1.0192</code></pre>
 <pre class="r"><code>#   1.2. What is the proportion of senior citizens in the dataset? 
-    Sen_Cit &lt;- Telco_Customer_Churn$SeniorCitizen   
-    SC_agreg &lt;- aggregate(x = data.frame(Sen_Cit), list(value = Sen_Cit),length)
-    Sen_Cit_ratio &lt;- round(SC_agreg$Sen_Cit[2]/sum(SC_agreg$Sen_Cit),4)
-    
-    cat('The Proportion of Senior Citizens in data is: ',Sen_Cit_ratio,' or ',Sen_Cit_ratio*100 ,'%\n')</code></pre>
+		Sen_Cit &lt;- Telco_Customer_Churn$SeniorCitizen   
+		SC_agreg &lt;- aggregate(x = data.frame(Sen_Cit), list(value = Sen_Cit),length)
+		Sen_Cit_ratio &lt;- round(SC_agreg$Sen_Cit[2]/sum(SC_agreg$Sen_Cit),4)
+		
+		cat('The Proportion of Senior Citizens in data is: ',Sen_Cit_ratio,' or ',Sen_Cit_ratio*100 ,'%\n')</code></pre>
 <pre><code>## The Proportion of Senior Citizens in data is:  0.1621  or  16.21 %</code></pre>
 <pre class="r"><code>#   1.3. What is the most common type of contract in the dataset? 
-    Contract &lt;- Telco_Customer_Churn$Contract
-    Cont_agreg &lt;- aggregate(x = data.frame(Contract), list(value=Contract),length)
-    max_Cont_field &lt;- Cont_agreg$value[which.max(Cont_agreg$Contract)]
-    
-    cat('The most common type of contract in the dataset is: ',max_Cont_field,'\n')</code></pre>
+		Contract &lt;- Telco_Customer_Churn$Contract
+		Cont_agreg &lt;- aggregate(x = data.frame(Contract), list(value=Contract),length)
+		max_Cont_field &lt;- Cont_agreg$value[which.max(Cont_agreg$Contract)]
+		
+		cat('The most common type of contract in the dataset is: ',max_Cont_field,'\n')</code></pre>
 <pre><code>## The most common type of contract in the dataset is:  Month-to-month</code></pre>
 <pre class="r"><code>#   1.4. What is the most common type of internet service in the dataset? 
-    Int_Serv &lt;- Telco_Customer_Churn$InternetService
-    IS_agreg &lt;- aggregate(x = data.frame(Int_Serv), list(value=Int_Serv),length)
-    max_IS_field &lt;- IS_agreg$value[which.max(IS_agreg$Int_Serv)]
-    
-    cat('The most common type of internet service in the dataset is: ',max_IS_field,'\n')</code></pre>
+		Int_Serv &lt;- Telco_Customer_Churn$InternetService
+		IS_agreg &lt;- aggregate(x = data.frame(Int_Serv), list(value=Int_Serv),length)
+		max_IS_field &lt;- IS_agreg$value[which.max(IS_agreg$Int_Serv)]
+		
+		cat('The most common type of internet service in the dataset is: ',max_IS_field,'\n')</code></pre>
 <pre><code>## The most common type of internet service in the dataset is:  Fiber optic</code></pre>
 <pre class="r"><code>#   1.5. What is the least common payment method in the dataset? 
-    Pay_Method &lt;- Telco_Customer_Churn$PaymentMethod
-    PM_agreg &lt;- aggregate(x = data.frame(Pay_Method), list(value=Pay_Method),length)
-    min_PM_field &lt;- PM_agreg$value[which.min(PM_agreg$Pay_Method)]
-    
-    cat('The least common payment method in the dataset is: ',min_PM_field,'\n')</code></pre>
+		Pay_Method &lt;- Telco_Customer_Churn$PaymentMethod
+		PM_agreg &lt;- aggregate(x = data.frame(Pay_Method), list(value=Pay_Method),length)
+		min_PM_field &lt;- PM_agreg$value[which.min(PM_agreg$Pay_Method)]
+		
+		cat('The least common payment method in the dataset is: ',min_PM_field,'\n')</code></pre>
 <pre><code>## The least common payment method in the dataset is:  Credit card (automatic)</code></pre>
+<pre class="r"><code>#   1.6. What is the average tenure of male and female customers?
+		Ten_Cal &lt;- Telco_Customer_Churn[, c(2,6)]
+		males_ten = subset(Ten_Cal, subset = (Ten_Cal[,1] == &quot;Male&quot;))
+		female_ten = subset(Ten_Cal, subset = (Ten_Cal[,1] == &quot;Female&quot;))
+		male_ave = round(sum(males_ten$tenure)/length(males_ten$tenure),4)
+		female_ave = round(sum(female_ten$tenure)/length(female_ten$tenure),4)
+
+		cat('The average tenures of males and females are ',male_ave,' &amp; ',female_ave,' respectively.\n')</code></pre>
+<pre><code>## The average tenures of males and females are  32.4954  &amp;  32.2446  respectively.</code></pre>
+<pre class="r"><code>#   1.7. Is Streaming TV favored over the Streaming Movies service?
+		TV_count = length(subset(Telco_Customer_Churn$StreamingTV,subset = (Telco_Customer_Churn$StreamingTV == 'Yes')))
+		Mov_count = length(subset(Telco_Customer_Churn$StreamingMovies,subset = (Telco_Customer_Churn$StreamingMovies == 'Yes')))
+		
+		cat('Is Streaming TV favored over the Streaming Movies service? \t', ifelse(TV_count &gt; Mov_count,&quot;YES!&quot;,&quot;NO!&quot;),'\n')</code></pre>
+<pre><code>## Is Streaming TV favored over the Streaming Movies service?    NO!</code></pre>
+<pre class="r"><code>#   1.8. How many customers churned out of the total customers? 
+		churn_count = length(subset(Telco_Customer_Churn$Churn,subset = (Telco_Customer_Churn$Churn == 'Yes')))
+		
+		cat(churn_count ,'customers churned out of the total customers!,\n')</code></pre>
+<pre><code>## 1869 customers churned out of the total customers!,</code></pre>
+<pre class="r"><code># 1.9. What is the mean “monthly charges” amongst customers with month-to-month contracts? 
+		Cont_MonCharge = Telco_Customer_Churn[,c('Contract','MonthlyCharges')]
+		MonChages_for_montomon = subset(Cont_MonCharge,Cont_MonCharge$Contract == &quot;Month-to-month&quot;)
+		
+		cat('The mean “monthly charges” amongst customers with month-to-month contracts is:',round(mean(MonChages_for_montomon$MonthlyCharges),4),'\n')</code></pre>
+<pre><code>## The mean “monthly charges” amongst customers with month-to-month contracts is: 66.3985</code></pre>
+<pre class="r"><code># 1.10. What is the gender wise average of “total charges” amongst customers? 
+		Gend_Charges = Telco_Customer_Churn[,c('gender','TotalCharges')]
+		male_charges = subset(Gend_Charges, Gend_Charges$gender == &quot;Male&quot;)
+		female_charges = subset(Gend_Charges, Gend_Charges$gender == &quot;Female&quot;)
+		male_charges_ave = round(sum(male_charges$TotalCharges,na.rm = TRUE)/length(male_charges$TotalCharges),4)   
+		female_charges_ave = round(sum(female_charges$TotalCharges,na.rm = TRUE)/length(female_charges$TotalCharges),4) 
+		
+		gend_wise_ave = data.frame(c(&quot;Male&quot;,&quot;Female&quot;),c(male_charges_ave,female_charges_ave))
+		colnames(gend_wise_ave) &lt;- c(&quot;Gender&quot;,&quot;Total Charges Average&quot;)
+		show(gend_wise_ave)</code></pre>
+<pre><code>##   Gender Total Charges Average
+## 1   Male              2279.554
+## 2 Female              2279.918</code></pre>
 
 
 
@@ -200,10 +221,10 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+	$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
-  bootstrapStylePandocTables();
+	bootstrapStylePandocTables();
 });
 
 
@@ -211,12 +232,12 @@ $(document).ready(function () {
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
+	(function () {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+		document.getElementsByTagName("head")[0].appendChild(script);
+	})();
 </script>
 
 </body>

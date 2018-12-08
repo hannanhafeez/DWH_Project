@@ -50,12 +50,29 @@
 	cat('The average tenures of males and females are ',male_ave,' & ',female_ave,' respectively.\n')
 	
 #	1.7. Is Streaming TV favored over the Streaming Movies service?
-	
 	TV_count = length(subset(Telco_Customer_Churn$StreamingTV,subset = (Telco_Customer_Churn$StreamingTV == 'Yes')))
 	Mov_count = length(subset(Telco_Customer_Churn$StreamingMovies,subset = (Telco_Customer_Churn$StreamingMovies == 'Yes')))
 	
-	cat('Is Streaming TV favored over the Streaming Movies service? \t', ifelse(TV_count > Mov_count,"YES!","NO!"))
+	cat('Is Streaming TV favored over the Streaming Movies service? \t', ifelse(TV_count > Mov_count,"YES!","NO!"),'\n')
 
 #	1.8. How many customers churned out of the total customers? 
+	churn_count = length(subset(Telco_Customer_Churn$Churn,subset = (Telco_Customer_Churn$Churn == 'Yes')))
 	
+	cat(churn_count ,'customers churned out of the total customers!,\n')
+
+# 1.9. What is the mean “monthly charges” amongst customers with month-to-month contracts? 
+	Cont_MonCharge = Telco_Customer_Churn[,c('Contract','MonthlyCharges')]
+	MonChages_for_montomon = subset(Cont_MonCharge,Cont_MonCharge$Contract == "Month-to-month")
 	
+	cat('The mean “monthly charges” amongst customers with month-to-month contracts is:',round(mean(MonChages_for_montomon$MonthlyCharges),4),'\n')
+	
+# 1.10.	What is the gender wise average of “total charges” amongst customers? 
+	Gend_Charges = Telco_Customer_Churn[,c('gender','TotalCharges')]
+	male_charges = subset(Gend_Charges, Gend_Charges$gender == "Male")
+	female_charges = subset(Gend_Charges, Gend_Charges$gender == "Female")
+	male_charges_ave = round(sum(male_charges$TotalCharges,na.rm = TRUE)/length(male_charges$TotalCharges),4)	
+	female_charges_ave = round(sum(female_charges$TotalCharges,na.rm = TRUE)/length(female_charges$TotalCharges),4)	
+	
+	gend_wise_ave = data.frame(c("Male","Female"),c(male_charges_ave,female_charges_ave))
+	colnames(gend_wise_ave) <- c("Gender","Total Charges Average")
+	show(gend_wise_ave)
