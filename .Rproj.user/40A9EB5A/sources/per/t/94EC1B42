@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544298382937.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "94EC1B42",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1544298382937,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "E93216C0",
+        "caption" : "Telco_Customer_Churn",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Telco_Customer_Churn&cache_key=E93216C0",
+        "displayedObservations" : "7043",
+        "environment" : "",
+        "object" : "Telco_Customer_Churn",
+        "preview" : "0",
+        "totalObservations" : "7043",
+        "variables" : "17"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

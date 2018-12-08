@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544301703184.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1962018711",
+    "id" : "828A407C",
+    "lastKnownWriteTime" : 1544300645,
+    "last_content_update" : 1544300645,
+    "path" : "D:/OneDrive/7th Semester/Data Warehousing/Project/Q1.R",
+    "project_path" : "Q1.R",
+    "properties" : {
+        "cursorPosition" : "61,0",
+        "docOutlineVisible" : "0",
+        "notebook_format" : "html_document",
+        "scrollLine" : "54"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
