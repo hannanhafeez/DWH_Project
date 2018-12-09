@@ -191,7 +191,7 @@ $(document).ready(function () {
 		churn_count = length(subset(Telco_Customer_Churn$Churn,subset = (Telco_Customer_Churn$Churn == 'Yes')))
 		
 		cat(churn_count ,'customers churned out of the total customers!,\n')</code></pre>
-<pre><code>## 1869 customers churned out of the total customers!,</code></pre>
+<pre><code>## 1869 customers churned out of the total customers!</code></pre>
 <pre class="r"><code># 1.9. What is the mean “monthly charges” amongst customers with month-to-month contracts? 
 		Cont_MonCharge = Telco_Customer_Churn[,c('Contract','MonthlyCharges')]
 		MonChages_for_montomon = subset(Cont_MonCharge,Cont_MonCharge$Contract == &quot;Month-to-month&quot;)

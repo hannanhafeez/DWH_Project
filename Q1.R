@@ -58,7 +58,7 @@
 #	1.8. How many customers churned out of the total customers? 
 	churn_count = length(subset(Telco_Customer_Churn$Churn,subset = (Telco_Customer_Churn$Churn == 'Yes')))
 	
-	cat(churn_count ,'customers churned out of the total customers!,\n')
+	cat(churn_count ,'customers churned out of the total customers!\n')
 
 # 1.9. What is the mean “monthly charges” amongst customers with month-to-month contracts? 
 	Cont_MonCharge = Telco_Customer_Churn[,c('Contract','MonthlyCharges')]
@@ -76,3 +76,4 @@
 	gend_wise_ave = data.frame(c("Male","Female"),c(male_charges_ave,female_charges_ave))
 	colnames(gend_wise_ave) <- c("Gender","Total Charges Average")
 	show(gend_wise_ave)
+	View(gend_wise_ave)
